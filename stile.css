@@ -1,0 +1,130 @@
+/* Stili generali e layout centrato */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f1f3f5;
+    color: #1f2328;
+    padding: 0 60px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Titolo */
+h1 {
+    font-size: 32px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+/* Box form e Card generica */
+form, .card {
+    width: 360px;
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form e Input */
+form label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    margin-top: 12px;
+}
+
+form label:first-of-type {
+    margin-top: 0;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+/* Pulsante Submit */
+input[type="submit"] {
+    background-color: #1f2328;
+    color: #f1f3f5;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+input[type="submit"]:hover {
+    opacity: 0.9;
+}
+
+/* Contenuto Card Risultati */
+.card {
+    text-align: center;
+    border-width: 2px;
+    border-style: solid;
+    margin-bottom: 20px;
+}
+
+.valore-bmi {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.fascia-bmi {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Classificazioni Specifiche */
+.card.sottopeso {
+    background-color: #e3eef9;
+    border-color: #2f6fb3;
+    color: #2f6fb3;
+}
+
+.card.normopeso {
+    background-color: #e3f4e6;
+    border-color: #256d34;
+    color: #256d34;
+}
+
+.card.sovrappeso {
+    background-color: #fcebd7;
+    border-color: #9a4f06;
+    color: #9a4f06;
+}
+
+.card.obesita {
+    background-color: #fbe2e2;
+    border-color: #b32d2d;
+    color: #b32d2d;
+}
+
+/* Link Calcola di nuovo */
+.btn-ricalcola {
+    display: inline-block;
+    color: #1f2328;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-ricalcola:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,28 @@
+Genera un layout web con contenuto centrato verticalmente e orizzontalmente.
+Il layout dev'essere a singola colonna.
+
+Lo spazio laterale per il layout dev'essere di 60 px sui lati destro e sinistro.
+
+Stili comuni (in un file stile.css):
+Usa un font senza grazie per tutto.
+Sfondo: #f1f3f5
+Colore testo: #1f2328
+Box bianco largo 360px padding 24px, border radius: 12 px, leggera ombra
+Titolo:
+fontsize: 32px
+margine inferiore: 24px
+
+Card:
+-Contiene un form con 3 campi: Nome, Peso, altezza.
+        -Nella pagina iniziale quest 3 campi vengono riempiti dall'utente tramite un campo input, il primo di tipo text, il secondo e il terzo di tipo number (reali). Ognuno di questi campi, come id e for, ha il nome stesso del campo (es. "Nome" id= nome, for=nome).
+        -Questi dati vengono passati in una pagina PHP chiamata bmi.php che, prima esegue un controllo già da me costruito, e poi deve, in base alla formula per calcolare il BMI (peso kg / [altezza cm]^2) deve riportare come risultato una tra 4 card.
+        -Queste card vanno in base alle classificazioni (nel file unico stile.css saranno tutte contrassegnate da ".card.sottopeso" e così via):
+            -SOTTOPESO: <18,5 -- sfondo: #e3eef9 -- bordo e scritta: #2f6fb3 
+            -NORMOPESO: da 18,5 a 24,9 -- sfondo: #e3f4e6 -- bordo e scritta: #256d34
+            -SOVRAPPESO: da 25 a 29,9 -- sfondo: #fcebd7 -- bordo e scritta: #9a4f06
+            -OBESITÀ: 30 o più -- sfondo: #fbe2e2 -- bordo e scritta: #b32d2d
+
+        -Queste card presenterrano il risultato del BMI con 2 decimali (grande, 48px), fascia in maiuscolo e sotto la classificazione.
+        -Sotto ogni card un link "Calcola di nuovo" che porta di nuovo a form.html
+
+-Pulsante di submit: sfondo 1f2328 e colore testo: f1f3f5 e angoli 8px.
