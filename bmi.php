@@ -43,7 +43,7 @@
             echo "  <div class='valore-bmi'>$bmi_formattato</div>";
             echo "  <div class='fascia-bmi'>$fascia</div>";
             echo "</div>";
-            echo "<a href='index.html' class='btn-ricalcola'>Calcola di nuovo</a>";
+            echo "<a href='form.html' class='btn-ricalcola'>Calcola di nuovo</a>";
         }
     ?>
     
