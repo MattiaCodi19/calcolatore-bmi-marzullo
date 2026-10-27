@@ -8,6 +8,10 @@
 </head>
 <body>
     <?php 
+        if ($_SERVER['REQUEST_METHOD'] != "POST"){
+            header("Location: form.html");
+        }
+
         $nome = $_POST['nome'];
         $peso = $_POST['peso'];
         $altezza = $_POST['altezza'];
