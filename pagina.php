@@ -5,15 +5,30 @@
         $altezza = "";
         $bmi = 0;
         $classe = "NOT_VALID";
+        $nome_errato = "";
+        $peso_errato = "";
+        $altezza_errata = "";
 
         // Eseguiamo i calcoli e l'output della card solo se il form è stato inviato
-        if ($_SERVER['REQUEST_METHOD'] == "POST"){
-            $nome = $_POST['nome'];
-            $peso = $_POST['peso'];
-            $altezza = $_POST['altezza'];
-            if ($nome == "" || $peso == "" || $altezza == "") {
-                echo "Campi non correttamente inseriti.";
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+            if ($_POST['nome'] == "") {
+                $nome_errato = "Nome non correttamente inserito";
+                $nome = "";
             } else {
+                $nome = $_POST['nome'];
+            
+            } if ($_POST['peso'] == "" || $_POST['peso'] <= 0) {
+                $peso_errato = "Peso non correttamente inserito";
+                $peso = ""; 
+            } else {
+                $peso = $_POST['peso']; 
+            }if ($_POST['altezza'] == "" || $_POST['altezza'] <= 0) {
+                $altezza_errata = "Altezza non correttamente inserita";
+                $altezza = ""; 
+            } else {
+                $altezza = $_POST['altezza']; 
+            } if ($nome_errato == "" && $peso_errato == "" && $altezza_errata == "") {
                 // Conversione dell'altezza da cm a metri per la formula
                 $altezza_m = $altezza / 100;
                 $bmi = 0;
@@ -44,7 +59,6 @@
                 echo "</div>";
             }
         }
-
         // Controlli pre-scrittura su file (eseguiti solo se è stato inviato il form)
         if ($_SERVER['REQUEST_METHOD'] == "POST"){
             if (empty($nome) || is_numeric($nome)) {
@@ -101,14 +115,17 @@
 <body>
     <form action="pagina.php" method="post">
         <h1>Calcolatore BMI</h1>
-        <label for="nome" id="nome">Nome </label>
-        <input type="text" name="nome" id="nome" placeholder="Luca">
+        <label for="nome">Nome </label>
+        <input type="text" name="nome" id="nome" placeholder="Luca" value="<?php echo isset($_POST['nome']) ? $_POST['nome'] : ''; ?>">
+        <p><?php echo $nome_errato; ?></p>
 
-        <label for="peso" id="peso">Peso (kg) </label>
-        <input type="number" name="peso" id="peso" placeholder="70">
+        <label for="peso">Peso (kg) </label>
+        <input type="number" name="peso" id="peso" placeholder="70" value="<?php echo isset($_POST['peso']) ? $_POST['peso'] : ''; ?>">
+        <p><?php echo $peso_errato; ?></p>
 
-        <label for="altezza" id="nome">Altezza (cm) </label>
-        <input type="number" name="altezza" id="altezza" placeholder="178">
+        <label for="altezza">Altezza (cm) </label>
+        <input type="number" name="altezza" id="altezza" placeholder="178" value="<?php echo isset($_POST['altezza']) ? $_POST['altezza'] : ''; ?>">
+        <p><?php echo $altezza_errata; ?></p>
 
         <input type="submit" value="Calcola">
 </form>
